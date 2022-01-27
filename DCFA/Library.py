@@ -27,10 +27,10 @@ def evaluation_NDCG(order, top_k, positive_item):
 
 def readdata(dataset):
     #file paths
-    path_train = '.\dataset\id2num_dict\interactions' + dataset + '_train.json'
-    path_train_aux = '.\dataset\id2num_dict\interactions' + dataset + '_train_aux.json'
-    path_validate = '.\dataset\id2num_dict\interactions' + dataset + '_validate.json'
-    path_test = '.\dataset\id2num_dict\interactions' + dataset + '_test.json'
+    path_train = './dataset/interactions' + dataset + '_train.json'
+    path_train_aux = './dataset/interactions' + dataset + '_train_aux.json'
+    path_validate = './dataset/interactions' + dataset + '_validate.json'
+    path_test = './dataset/interactions' + dataset + '_test.json'
     # read files
     with open(path_train) as f:
         line = f.readline()
@@ -59,8 +59,8 @@ def readdata(dataset):
 
 def readdata_time(dataset):
     #file paths
-    path_train_record_aux = '.\dataset\id2num_dict\interactions' + dataset + '_train_record_aux.json'
-    path_train_time_aux = '.\dataset\id2num_dict\interactions' + dataset + '_train_time_aux.json'
+    path_train_record_aux = './dataset/interactions' + dataset + '_train_record_aux.json'
+    path_train_time_aux = './dataset/interactions' + dataset + '_train_time_aux.json'
     # read files
     with open(path_train_record_aux) as f:
         line = f.readline()
@@ -73,8 +73,8 @@ def readdata_time(dataset):
     return train_record_aux, train_time_aux, len(train_time_aux)
 
 def read_feature(feature, dataset, Q):
-    path_feature = 'E:\\dataset\\features\\' + feature + '_feature.txt'
-    path_dict = 'E:\dataset\id2num_dict\id2num_dict' + dataset + '.json'
+    path_feature = './dataset/features/' + feature + '_feature.txt'
+    path_dict = './dataset/id2num_dict/id2num_dict' + dataset + '.json'
     with open(path_dict) as f:
         line = f.readline()
         item_i2num_dict = json.loads(line)

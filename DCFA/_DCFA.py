@@ -26,7 +26,7 @@ lambda_r = 1.5                      # regularization coefficient
 vali_test = 0                       # 0 for validate set,1 for test set
 feat = [3]                          # feature selecting, 0 for CNN, 1 for AES, 2 for CH, 3 for CNN+AES
 feature_length = 1000               # length of feature
-epoch = 200                         # number to iteration
+epoch = 5                       # number to iteration
 sample_rate = 5                     # sample sample_rate negative samples for each positive item
 
 
@@ -90,7 +90,7 @@ def test_DCFA(U, Vu, Vt, T, M, N, F):
             score = (UV * VT).tolist()
             # order
             b = zip(score, range(len(score)))
-            b.sort(key=lambda x: x[0])
+            b = sorted(b, key=lambda x: x[0])
             order = [x[1] for x in b]
             order.reverse()
             Order.append(order)
@@ -147,7 +147,7 @@ def train_DCFA(eta):
     # the number of train samples
     Re = len(train_data)
     # split the train samples with a step of batch_size_train
-    bs = range(0, Re, batch_size_train)
+    bs = list(range(0, Re, batch_size_train))
     bs.append(Re)
 
     for ep in range(0, epoch):
