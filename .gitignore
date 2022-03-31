@@ -1,5 +1,9 @@
 
-*.xml
+*.iml
+*.json
+*.txt
+=======
 *.txt
 *.json
 *.iml
+
